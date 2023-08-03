@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Love Timer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      text-align: center;
+    }
+    #timer-container {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #love-images {
+      margin-top: 30px;
+      background-color: #ffe6f0; /* Custom background color */
+      padding: 20px; /* Add some padding around the images */
+      border-radius: 10px; /* Round the corners */
+      display: flex;
+      justify-content: space-around; /* To center the images horizontally */
+      align-items: center; /* To center the images vertically */
+    }
+    img {
+      width: 150px;
+      height: 150px;
+      margin: 10px;
+      border-radius: 50%; /* Make the images circular */
+      border: 2px solid #f50057; /* Add a border with a lovely pink color */
+    }
+    #timer {
+      font-size: 24px;
+      font-weight: bold;
+      color: #f50057; /* Lovely pink color for the text */
+      margin-bottom: 10px;
+    }
+    #time-text {
+      font-size: 18px;
+      color: #666; /* Subtle gray color for the description text */
+    }
+  </style>
+</head>
+<body>
+  <div id="timer-container">
+    <div id="timer"></div>
+    <div id="time-text">Time until our Special Day</div>
+  </div>
+  <div id="love-images">
+    <a href='https://postimg.cc/WhchM3Bn' target='_blank'><img src='https://i.postimg.cc/WhchM3Bn/IMG-20230427-WA0017.jpg' alt='IMG-20230427-WA0017'/></a>
+    <a href='https://postimg.cc/xXTjRbtK' target='_blank'><img src='https://i.postimg.cc/xXTjRbtK/IMG-20230427-WA0015.jpg' alt='IMG-20230427-WA0015'/></a>
+  </div>
+
+  <script>
+    function updateTime() {
+      const currentDate = new Date();
+      const targetDate = new Date("2023-10-20");
+
+      const timeDiff = targetDate - currentDate;
+
+      const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+      const timerDiv = document.getElementById("timer");
+      timerDiv.innerHTML = `<h2>Time remaining:</h2>
+                            <p>${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds</p>`;
+    }
+
+    setInterval(updateTime, 1000); // Update the time every second
+  </script>
+</body>
+</html>
